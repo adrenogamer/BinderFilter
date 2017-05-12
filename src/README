@@ -20,12 +20,12 @@ Kconfig and Makefile for Binder		 drivers/staging/android/Makefile
 PATCHING SOURCE CODE
 1. Copy/paste binder_filter.h, binder_filter.c to your kernel source code:
 
-cp <path-to-BinderFilter-project>/BinderFilter/src/binder_filter.c <path-to-kernel-source>/drivers/staging/android/
-cp <path-to-BinderFilter-project>/BinderFilter/src/binder_filter.h <path-to-kernel-source>/drivers/staging/android/
+cp <path-to-BinderFilter-repo>/src/binder_filter.c <path-to-kernel-source>/drivers/staging/android/
+cp <path-to-BinderFilter-repo>/src/binder_filter.h <path-to-kernel-source>/drivers/staging/android/
 
 2. Apply patches for your binder.c, Kconfig and Makefile:
 
-cp <path-to-BinderFilter-project>/BinderFilter/src/vanilla/*.patch <path-to-kernel-source>
+cp <path-to-BinderFilter-repo>/src/vanilla/*.patch <path-to-kernel-source>
 cd <path-to-kernel-source>
 patch -p1 < binder.patch
 patch -p1 < Makefile_binderfilter.patch
