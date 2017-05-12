@@ -1,0 +1,14 @@
+--- drivers/staging/android/Kconfig	2017-04-29 21:26:56.908056555 +0000
++++ Kconfig	2017-05-12 10:42:55.424331188 +0000
+@@ -137,6 +137,11 @@
+ 	depends on SYNC
+ 	help
+ 	  Provide a userspace API for creating oneshot sync objects.
++	  
++config ANDROID_BINDER_FILTER
++	bool "Binder filter"
++	depends on ANDROID_BINDER_IPC
++	default y
+ 
+ source "drivers/staging/android/ion/Kconfig"
+ 

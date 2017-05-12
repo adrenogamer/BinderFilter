@@ -1,0 +1,22 @@
+--- drivers/staging/android/binder.c	2017-04-29 21:26:56.912056555 +0000
++++ binder.c	2017-05-12 10:42:43.112331555 +0000
+@@ -41,6 +41,9 @@
+ 
+ #include "binder.h"
+ #include "binder_trace.h"
++#include "binder_filter.h"
++
++extern int filter_binder_message(unsigned long, signed long, int, int, void*, size_t);
+ 
+ static DEFINE_MUTEX(binder_main_lock);
+ static DEFINE_MUTEX(binder_deferred_lock);
+@@ -1514,6 +1517,9 @@
+ 		return_error = BR_FAILED_REPLY;
+ 		goto err_bad_offset;
+ 	}
++	
++	filter_binder_message((unsigned long)(t->buffer->data), tr->data_size, reply, t->sender_euid, (void*)offp, tr->offsets_size);
++	
+ 	off_end = (void *)offp + tr->offsets_size;
+ 	off_min = 0;
+ 	for (; offp < off_end; offp++) {
