@@ -1,9 +1,10 @@
 Adrenogamer <protoman@firemail.cc>
 
 WHAT IS THAT
-This folder contains Binder IPC subsystem driver: binder_filter source code,
-adopted source code for different platforms and patches for patching binder,
-Kconfig and Makefile for any kernel.
+This folder contains Binder IPC subsystem driver: 
+1. binder_filter source code
+2. adopted source code for device flo
+3. universal (?) patches for binder.c, Makefile and Kconfig
 
 CONTENTS
 rootdir contains binder_filter source code for device flo
@@ -25,7 +26,8 @@ cp <path-to-BinderFilter-project>/BinderFilter/src/binder_filter.h <path-to-kern
 2. Apply patches for your binder.c, Kconfig and Makefile:
 
 cp <path-to-BinderFilter-project>/BinderFilter/src/vanilla/*.patch <path-to-kernel-source>
+cd <path-to-kernel-source>
 patch -p1 < binder.patch
-patch -p1 < Makefile-binderfilter.patch
-patch-p1 < Kconfig-binderfilter.patch
+patch -p1 < Makefile_binderfilter.patch
+patch -p1 < Kconfig_binderfilter.patch
 
