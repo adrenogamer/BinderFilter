@@ -362,7 +362,7 @@ static void print_string(const char* buf, size_t data_size, int max_buffer_size)
 	}
 
 	if (data_size > max_buffer_size) {
-		printk(KERN_INFO "BINDERFILTER: data size %d too large (max size %d)", data_size, max_buffer_size);
+		printk(KERN_INFO "BINDERFILTER: data size %d too large (max size %zu)", data_size, max_buffer_size);
 		len = max_buffer_size;
 	}
 
@@ -976,7 +976,7 @@ static void print_binder_transaction_data(char* data, size_t data_size, int euid
 		fp = (struct flat_binder_object *)offp;
 		if (fp != NULL) {
 			if (fp->type == BINDER_TYPE_FD) {
-				printk(KERN_INFO "BINDERFILTER: type BINDER_TYPE_FD, handle %ld\n", fp->handle);
+				printk(KERN_INFO "BINDERFILTER: type BINDER_TYPE_FD, handle %u\n", fp->handle);
 			}
 		}
 	}
